@@ -1,0 +1,13 @@
+﻿  core.c
+  descriptor.c
+  hotplug.c
+  io.c
+  poll_windows.c
+  strerror.c
+  sync.c
+  threads_windows.c
+  windows_nt_common.c
+  windows_winusb.c
+  Generating Code...
+     Creating library C:\Users\plgrmal\Desktop\libusb-master\msvc\..\Win32\Debug\dll\libusb-1.0.lib and object C:\Users\plgrmal\Desktop\libusb-master\msvc\..\Win32\Debug\dll\libusb-1.0.exp
+  libusb_dll_2017.vcxproj -> C:\Users\plgrmal\Desktop\libusb-master\msvc\..\Win32\Debug\dll\libusb-1.0.dll

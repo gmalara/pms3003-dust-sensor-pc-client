@@ -1,0 +1,16 @@
+﻿Build started 2017-11-27 19:54:05.
+     1>Project "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\libusb_usbdk_dll_2013.vcxproj" on node 5 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I. /I..\libusb /Zi /nologo /W4 /WX- /O2 /Oy- /GL /D _WIN32 /D _LIB /D _CRT_SECURE_NO_WARNINGS /D USE_USBDK /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Release\dll\libusb-usbdk-1.0\\" /Fd"D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Release\dll\libusb-usbdk-1.0\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\libusb\core.c ..\libusb\descriptor.c ..\libusb\hotplug.c ..\libusb\io.c ..\libusb\os\poll_windows.c ..\libusb\strerror.c ..\libusb\sync.c ..\libusb\os\threads_windows.c ..\libusb\os\windows_nt_common.c ..\libusb\os\windows_usbdk.c
+         core.c
+         descriptor.c
+         hotplug.c
+         io.c
+         poll_windows.c
+         strerror.c
+         sync.c
+     1>Done Building Project "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\libusb_usbdk_dll_2013.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.53

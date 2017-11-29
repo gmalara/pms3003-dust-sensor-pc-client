@@ -1,0 +1,32 @@
+﻿Build started 2017-11-27 20:28:16.
+     1>Project "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\libusb_static_2013.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I. /I..\libusb /Zi /nologo /W4 /WX- /Od /Oy- /D _WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm- /EHsc /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\\" /Fd"D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\libusb\core.c ..\libusb\descriptor.c ..\libusb\hotplug.c ..\libusb\io.c ..\libusb\os\poll_windows.c ..\libusb\strerror.c ..\libusb\sync.c ..\libusb\os\threads_windows.c ..\libusb\os\windows_nt_common.c ..\libusb\os\windows_winusb.c
+         core.c
+         descriptor.c
+         hotplug.c
+         io.c
+         poll_windows.c
+         strerror.c
+         sync.c
+         threads_windows.c
+         windows_nt_common.c
+         windows_winusb.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0.lib" /NOLOGO "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\core.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\descriptor.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\hotplug.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\io.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\poll_windows.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\strerror.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\sync.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\threads_windows.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\windows_nt_common.obj"
+         "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0\windows_winusb.obj"
+         libusb_static_2013.vcxproj -> D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\..\Win32\Debug\lib\libusb-1.0.lib
+     1>Done Building Project "D:\Dropbox\Programowanie\C\AirQuality\libusb-master\msvc\libusb_static_2013.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.21
