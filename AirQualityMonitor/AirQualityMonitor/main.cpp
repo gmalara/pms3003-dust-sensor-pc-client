@@ -12,63 +12,6 @@ namespace{
 
 
 
-int getPm25TSI(unsigned char *buf) 
-{
-  int PM25v;
-  PM25v = ((buf[6] << 8) + buf[7]);
-  return PM25v;
-}
-
-int getPM10TSI(unsigned char *buf) 
-{
-  int PM10v;
-  PM10v = ((buf[8] << 8) + buf[9]);
-  return PM10v;
-}
-
-int getPM25real(unsigned char *buf) 
-{
-  int PM25v;
-  PM25v = ((buf[12] << 8) + buf[13]);
-  return PM25v;
-}
-
-int getPM10real(unsigned char *buf) 
-{
-  int PM10v;
-  PM10v = ((buf[14] << 8) + buf[15]);
-  return PM10v;
-}
-
-
-bool checkDataCRC(unsigned char *buf, int length) 
-{
-  bool flag = false;
-  int sum = 0;
-
-  for (int i = 0; i < (length - 3); i++)
-    sum += buf[i];
-
-  if (sum == ((buf[length - 2] << 8) + buf[length - 1]))
-  {
-    sum = 0;
-    flag = true;
-  }
-  return flag;
-}
-
-void HandleIncomingData(unsigned char* buf, int length) {
-  int startFound = -1;//not found flag
-  for (int i = 0; i < length; ++i) 
-    if (int(buf[i]) == kFirstByteOfSequence && startFound < 0)
-      startFound = i;
-
-  auto rightBuffer = &buf[startFound];
-  auto dataok = checkDataCRC(rightBuffer, kBuff_length);
-  if (!dataok) return;
-  cout << "PM10 " << getPM10real(rightBuffer) << " \tPM25: " << getPM25real(rightBuffer) << endl;
-}
-
 void DescribeDevice(libusb_device_handle* dev_handle, libusb_device_descriptor desc) {
   unsigned char data[200] = "\0";
   if (dev_handle) {
@@ -95,11 +38,12 @@ void DescribeDeviceAndLoopForTheData(libusb_context* ctx, libusb_device_descript
     struct libusb_transfer* transfer = libusb_alloc_transfer(0);
     unsigned char buf[kBuff_length * 2];
     int actualLength = kBuff_length * 2;
+    Measurements m;
 
     while (1) {
       Sleep(500);
       auto ret = libusb_bulk_transfer(dev_handle, kEndpointAddress | LIBUSB_ENDPOINT_IN, buf, kBuff_length * 2, &actualLength, 5000);
-      HandleIncomingData(buf, actualLength);
+      m.HandleIncomingData(buf, actualLength);
     }
   
   cout << boolalpha << "Closing Device. \n ";

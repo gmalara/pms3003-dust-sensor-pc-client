@@ -1,8 +1,7 @@
 #pragma once
+#include "Measurements.h"
 #include <boost/signals2.hpp>
 #include <future>
-
-class Measurements; //forward decl
 
 
 class IAirQualityMonitor {
