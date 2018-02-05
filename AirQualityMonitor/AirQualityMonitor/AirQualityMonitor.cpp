@@ -11,11 +11,11 @@ const uint16_t kFirstByteOfSequence = 0x42;
 }
 
 void AirQualityMonitor::PublishMeasurements(Measurements& m) {
-  // onUpdate(m);
+  onUpdate(m);
 }
 
 void AirQualityMonitor::SubscribeObserver(IAirQualityMonitor::UpdateHandler::slot_type update) {
-  // onUpdate.connect(update);
+  onUpdate.connect(update);
 }
 
 AirQualityMonitor::AirQualityMonitor() { RunLoop(); }
