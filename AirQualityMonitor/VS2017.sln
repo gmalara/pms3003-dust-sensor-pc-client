@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libusb-1.0 (static)", "..\libusb-master\msvc\libusb_static_2017.vcxproj", "{349EE8F9-7D25-4909-AAF5-FF3FADE72187}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AirQualityMonitorVS2017", "AirQualityMonitor\AirQualityMonitorVS2017.vcxproj", "{52605BC0-3918-4305-9F5E-91F44105686C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nana", "..\nana\build\vc2017\nana.vcxproj", "{42D0520F-EFA5-4831-84FE-2B9085301C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{52605BC0-3918-4305-9F5E-91F44105686C}.Release|x64.Build.0 = Release|x64
 		{52605BC0-3918-4305-9F5E-91F44105686C}.Release|x86.ActiveCfg = Release|Win32
 		{52605BC0-3918-4305-9F5E-91F44105686C}.Release|x86.Build.0 = Release|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Debug|Win32.Build.0 = Debug|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Debug|x64.ActiveCfg = Debug|x64
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Debug|x64.Build.0 = Debug|x64
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Debug|x86.ActiveCfg = Debug|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Debug|x86.Build.0 = Debug|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Release|Win32.ActiveCfg = Release|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Release|Win32.Build.0 = Release|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Release|x64.ActiveCfg = Release|x64
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Release|x64.Build.0 = Release|x64
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Release|x86.ActiveCfg = Release|Win32
+		{42D0520F-EFA5-4831-84FE-2B9085301C5D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

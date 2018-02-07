@@ -1,4 +1,5 @@
-#include "AirQualityMonitor.h" //TODO remove preheaders
+#include "AirQualityMonitor.h" 
+#include "MeasurementConsumer.h" 
 #include <iostream>
 #include "libusb.h"
 
@@ -109,6 +110,11 @@ pair<bool, libusb_device_descriptor> FindDeviceAndPrintInfo(libusb_context* ctx,
 }
 
 int main() {
+  AirQualityMonitor aqm;
+
+  ChartsDrawer cd(aqm);
+  cin.get();
+
   libusb_device** devs; //pointer to pointer of device, used to retrieve a list of devices
   libusb_context* ctx = nullptr; //a libusb session
 
@@ -144,8 +150,7 @@ int main() {
 
     // Exit
     cout << endl << "Finnished.";
-    cin.get();
-    return 0;
   }
-  
+  cin.get();
+  return 0;
 }
