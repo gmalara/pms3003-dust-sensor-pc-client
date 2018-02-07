@@ -1,5 +1,6 @@
 #include "MeasurementConsumer.h"
 #include <iostream>
+#include "nana/gui/widgets/picture.hpp"
 
 
 MeasurementConsumerBase::MeasurementConsumerBase(AirQualityMonitor& aqm): aqm_(aqm) {}
@@ -17,7 +18,10 @@ void ChartsDrawer::StartViewThread() {
   {
     using namespace nana;
     form fm;
-    drawing dw(fm);
+    picture chart(fm);
+    chart.size(size(500,300));
+    chart.bgcolor(color(100,100,100));
+    drawing dw(chart);
     dw.draw([](paint::graphics& graph)
     {
         graph.rectangle(rectangle{5, 5, 50, 50}, true, colors::red );
@@ -27,22 +31,22 @@ void ChartsDrawer::StartViewThread() {
     fm.caption("Pollution Chart");
     fm.size(size(900,400));
     //Define a label and display a text.
-   // label lab{fm, "X asis"};
-    //lab.format(true);
+    label lab{fm, "X asis"};
+    lab.format(true);
 
     //Define a button and answer the click event.
-   // button btn{fm, "Quit"};
-   // btn.events().click([&fm] { fm.close(); });
+    button btn{fm, "Quit"};
+    btn.events().click([&fm] { fm.close(); });
 
     //Layout management
    // fm.div("vert <><<><weight=80% text><>><><weight=24<><button><>><>");
- //   fm.div("vert<chart weight=80><text weight=20>");
-  //  fm["chart"] << btn;
-  //  fm["text"] << lab;
+    fm.div("vert<chart weight=80><text weight=20>");
+    fm["chart"] << chart;
+    fm["text"] << lab;
   //  fm.collocate();
 
     dw.update();
-
+    chart.show();
     //Show the form
     fm.show();
 
