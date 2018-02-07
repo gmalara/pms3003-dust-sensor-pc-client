@@ -1,8 +1,5 @@
 #pragma once
 #include "AirQualityMonitor.h"
-#include <nana/gui.hpp>
-#include <nana/gui/widgets/label.hpp>
-#include <nana/gui/widgets/button.hpp>
 
 class IMeasurementConsumer {
 public:
@@ -30,14 +27,20 @@ public:
 
 };
 
+namespace nana {
+class drawing;
+namespace paint {class graphics; }
+}//forward decl
 
 class ChartsDrawer : public MeasurementConsumerBase {
 
 public:
   void StartViewThread();
   ChartsDrawer(AirQualityMonitor& aqm);
+  ~ChartsDrawer();
   void Process(Measurements&) override;
 private:
   std::future<void> viewLoop_;
-
+  std::shared_ptr<nana::drawing> dw;
+  std::function<void(nana::paint::graphics& graph)> draw_chart;
 };
