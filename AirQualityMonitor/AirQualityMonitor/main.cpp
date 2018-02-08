@@ -113,7 +113,11 @@ int main() {
   AirQualityMonitor aqm;
 
   ChartsDrawer cd(aqm);
+  ConsolePrinter cp(aqm);
+  cp.Process(Measurements());
   cin.get();
+  cd.Process(Measurements());
+  cp.Process(Measurements());
 
   libusb_device** devs; //pointer to pointer of device, used to retrieve a list of devices
   libusb_context* ctx = nullptr; //a libusb session

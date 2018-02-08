@@ -3,11 +3,11 @@
 using MeasuremetUnit = int;
 class Measurements {
 public:
-  MeasuremetUnit getPm25() {
+  MeasuremetUnit getPm25()const {
     return PM25v_;
   }
 
-    MeasuremetUnit getPm10() {
+    MeasuremetUnit getPm10()const {
     return PM10v_;
   }
 
