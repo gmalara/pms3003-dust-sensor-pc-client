@@ -44,7 +44,7 @@ bool Measurements::checkDataCRC(unsigned char* buf, int length) {
   return flag;
 }
 
-void Measurements::HandleIncomingData(unsigned char* buf, int length) {
+bool Measurements::HandleIncomingData(unsigned char* buf, int length) {
   int startFound = -1; //not found flag
   for (int i = 0; i < length; ++i)
     if (int(buf[i]) == kFirstByteOfSequence && startFound < 0)
@@ -52,6 +52,10 @@ void Measurements::HandleIncomingData(unsigned char* buf, int length) {
 
   auto rightBuffer = &buf[startFound];
   auto dataok = checkDataCRC(rightBuffer, kBuff_length);
-  if (!dataok) return;
-  std::cout << "PM10 " << setPM10real(rightBuffer) << " \tPM25: " << setPM25real(rightBuffer) << endl;
+  if (dataok) {
+    setPM10real(rightBuffer);
+    setPM25real(rightBuffer);
+  }
+  return dataok;
+  //std::cout << "PM10 " << setPM10real(rightBuffer) << " \tPM25: " << setPM25real(rightBuffer) << endl; 
 }

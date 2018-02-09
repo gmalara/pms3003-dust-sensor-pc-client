@@ -21,8 +21,9 @@ class AirQualityMonitor : public IAirQualityMonitor {
   void SubscribeObserver(IAirQualityMonitor::UpdateHandler::slot_type update)override;
 
 private:
+
   std::atomic<bool> shuttingDown_{false};
-  std::future<void> loop_;
+  std::future<void> deviceCommunication_;
   UpdateHandler onUpdate;
   void RunLoop();
 
