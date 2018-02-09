@@ -7,10 +7,9 @@
 #include "nana/plot/plot.h"
 #include "nana/gui/timer.hpp"
 
-MeasurementConsumerBase::MeasurementConsumerBase(AirQualityMonitor& aqm): aqm_(aqm) {}
+MeasurementConsumerBase::MeasurementConsumerBase(IAirQualityMonitor& aqm): aqm_(aqm) {}
 
-ConsolePrinter::ConsolePrinter(AirQualityMonitor& aqm): MeasurementConsumerBase(aqm) { Subscribe(); }
-ConsolePrinter::~ConsolePrinter() {}
+ConsolePrinter::ConsolePrinter(IAirQualityMonitor& aqm): MeasurementConsumerBase(aqm) { Subscribe(); }
 
 void ConsolePrinter::Process(const Measurements& m) { std::cout << "PM10 " << m.getPm10() << " \tPM25: " << m.getPm25() << std::endl; }
 void MeasurementConsumerBase::Subscribe() { aqm_.SubscribeObserver([this](Measurements& m) { Process(m); }); }
@@ -47,7 +46,7 @@ void ChartsDrawer::StartViewThread() {
   //viewLoop_.wait();
 }
 
-ChartsDrawer::ChartsDrawer(AirQualityMonitor& aqm): MeasurementConsumerBase(aqm) {
+ChartsDrawer::ChartsDrawer(IAirQualityMonitor& aqm): MeasurementConsumerBase(aqm) {
   Subscribe();
 
 

@@ -12,31 +12,34 @@ public:
 
 class MeasurementConsumerBase : public IMeasurementConsumer {
 protected:
-  MeasurementConsumerBase(AirQualityMonitor& aqm);
+  MeasurementConsumerBase(IAirQualityMonitor& aqm);
+
   void Subscribe(/*UpdateHandler::slot_type update*/);
 
 private:
-  AirQualityMonitor& aqm_;
+  IAirQualityMonitor& aqm_;
 };
 
 class ConsolePrinter : public MeasurementConsumerBase {
 public:
-  ConsolePrinter(AirQualityMonitor& aqm);
-  ~ConsolePrinter();
+  ConsolePrinter(IAirQualityMonitor& aqm);
   void Process(const Measurements&) override;
 
 };
 
 namespace nana {
-namespace plot {class trace; }
-}//forward decl
+namespace plot {
+class trace;
+}
+} //forward decl
 
 class ChartsDrawer : public MeasurementConsumerBase {
 
 public:
-  void StartViewThread();
-  ChartsDrawer(AirQualityMonitor& aqm);
+  ChartsDrawer(IAirQualityMonitor& aqm);
+  ChartsDrawer(const ChartsDrawer&) = delete;
   ~ChartsDrawer();
+  void StartViewThread();
   void Process(const Measurements&) override;
 private:
   std::future<void> viewLoop_;
