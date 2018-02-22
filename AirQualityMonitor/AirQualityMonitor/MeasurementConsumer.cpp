@@ -18,7 +18,7 @@ void MeasurementConsumerBase::Subscribe() { aqm_.SubscribeObserver([this](Measur
 
 void ChartsDrawer::StartViewThread() {
   using namespace nana;
-  
+
   viewLoop_ = std::async(std::launch::async, [&]()
   {
     form fm;
@@ -47,15 +47,13 @@ void ChartsDrawer::StartViewThread() {
 }
 
 ChartsDrawer::ChartsDrawer(IAirQualityMonitor& aqm): MeasurementConsumerBase(aqm) {
-  Subscribe();
-
-
   StartViewThread();
+  Subscribe();
 }
 
 ChartsDrawer::~ChartsDrawer() {}
 
 void ChartsDrawer::Process(const Measurements& m) {
   if (chart_trace_)
-    chart_trace_->add(11/* m.getPm25()*/);
+    chart_trace_->add(1100/* m.getPm25()*/);
 }

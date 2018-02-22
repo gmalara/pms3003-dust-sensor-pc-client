@@ -42,6 +42,6 @@ public:
   void StartViewThread();
   void Process(const Measurements&) override;
 private:
-  std::future<void> viewLoop_;
   std::shared_ptr<nana::plot::trace> chart_trace_;
+  std::future<void> viewLoop_;
 };

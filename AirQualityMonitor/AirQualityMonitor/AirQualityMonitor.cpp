@@ -100,7 +100,10 @@ void AirQualityMonitor::SubscribeObserver(IAirQualityMonitor::UpdateHandler::slo
 
 AirQualityMonitor::AirQualityMonitor() { RunLoop(); }
 
-AirQualityMonitor::~AirQualityMonitor() { shuttingDown_.store(true); }
+AirQualityMonitor::~AirQualityMonitor() {
+  onUpdate.disconnect_all_slots();
+  shuttingDown_.store(true);
+}
 
 void AirQualityMonitor::RunLoop() {
   deviceCommunication_ = std::async(std::launch::async, [this]()

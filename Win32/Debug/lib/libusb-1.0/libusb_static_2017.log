@@ -1,12 +1,1 @@
-﻿  core.c
-  descriptor.c
-  hotplug.c
-  io.c
-  poll_windows.c
-  strerror.c
-  sync.c
-  threads_windows.c
-  windows_nt_common.c
-  windows_winusb.c
-  Generating Code...
-  libusb_static_2017.vcxproj -> d:\git\pms3003\AirQualityMonitor\..\Win32\Debug\lib\libusb-1.0.lib
+﻿  libusb_static_2017.vcxproj -> D:\git\pms3003\AirQualityMonitor\..\Win32\Debug\lib\libusb-1.0.lib

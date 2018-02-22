@@ -14,10 +14,10 @@ namespace{
 int main() {
   AirQualityMonitor aqm;
 
-  ChartsDrawer cd(aqm);
-  ConsolePrinter cp(aqm);
-  cp.Process(Measurements());
-  cin.get();
-  cd.Process(Measurements());
-  cp.Process(Measurements());
+  ChartsDrawer charts_drawer(aqm);
+  ConsolePrinter console_printer(aqm);
+  //cp.Process(Measurements());
+  //cd.Process(Measurements());
+ // cp.Process(Measurements());
+  return 0;
 }
