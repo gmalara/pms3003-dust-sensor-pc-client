@@ -16,8 +16,5 @@ int main() {
 
   ChartsDrawer charts_drawer(aqm);
   ConsolePrinter console_printer(aqm);
-  //cp.Process(Measurements());
-  //cd.Process(Measurements());
- // cp.Process(Measurements());
   return 0;
 }
