@@ -94,8 +94,6 @@ void trace::update( paint::graphics& graph )
     int yOffset = myPlot->YOffset();
     double prev;
 
-   // if(myLabel) myLabel->move( getLabelPosition(), graph.height()-20 );
-    
     if( ! myfRealTime )
     {
         // loop over data points
