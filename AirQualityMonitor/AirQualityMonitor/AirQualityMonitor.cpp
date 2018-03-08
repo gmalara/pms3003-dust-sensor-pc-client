@@ -144,7 +144,6 @@ void AirQualityMonitor::RunLoop() {
           auto ret = libusb_bulk_transfer(dev_handle, kEndpointAddress | LIBUSB_ENDPOINT_IN, buf, kBuff_length * 2, &actualLength, 5000);
           Measurements m;
           if (m.HandleIncomingData(buf, actualLength))
-
             PublishMeasurements(m);
         }
 

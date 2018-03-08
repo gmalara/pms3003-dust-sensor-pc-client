@@ -51,6 +51,7 @@ void plot::CalcScale( int w, int h )
     myScale = h / ( myMaxY - myMinY );
     myYOffset = h + myScale * myMinY;
 }
+
 void trace::add( const std::vector< double >& y )
 {
     if( myfRealTime )
@@ -82,6 +83,7 @@ void trace::bounds( int& min, int& max )
     min--;
     max++;
 }
+int getLabelPosition(){return 30;}
 
 void trace::update( paint::graphics& graph )
 {
@@ -92,8 +94,8 @@ void trace::update( paint::graphics& graph )
     int yOffset = myPlot->YOffset();
     double prev;
 
-
-
+   // if(myLabel) myLabel->move( getLabelPosition(), graph.height()-20 );
+    
     if( ! myfRealTime )
     {
         // loop over data points
@@ -157,6 +159,17 @@ void trace::update( paint::graphics& graph )
         // ( most recent point )
         while( yidx != myRealTimeNext );
     }
+}
+
+void trace::setLabel(const char* myLabelText) 
+{
+    delete myLabel;
+    static int yLabelPosition = 10; 
+    myLabel = new label(myPlot->parent(), rectangle{20, yLabelPosition, 50, 50});
+    yLabelPosition += 15;
+
+    myLabel->caption(myLabelText);
+    myLabel->fgcolor(myColor);
 }
 
 axis::axis( plot * p )

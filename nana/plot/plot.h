@@ -12,11 +12,14 @@ class plot;
 class trace
 {
 public:
-
     trace()
         : myfRealTime( false )
     {
+    }
 
+    ~trace() 
+    {
+        delete myLabel;    
     }
 
     /** Convert trace to real time operation
@@ -49,7 +52,14 @@ public:
     void color( const colors & clr )
     {
         myColor = clr;
+        if (myLabel)
+          myLabel->fgcolor(clr);
     }
+
+    /** sets the label for trace
+        @param[in] myLabelText label text
+    */
+    void setLabel(const char* myLabelText);
 
     /// set plot where this trace will appear
     void Plot( plot * p )
@@ -71,6 +81,7 @@ private:
     plot * myPlot;
     std::vector< double > myY;
     colors myColor;
+    label * myLabel = nullptr;
     bool myfRealTime;
     int myRealTimeNext;
 };

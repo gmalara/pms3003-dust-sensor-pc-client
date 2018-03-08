@@ -24,31 +24,31 @@ void ChartsDrawer::StartViewThread() {
     form fm;
 
     plot::plot chart(fm);
+   // plot::axis ax(&chart);
+   // ax.update();
+    //ax.update()
+   //  static label * myLabelTrace = new label(chart.parent(),  rectangle{ 20, 10, 50, 50 } );
+   // myLabelTrace->text_align(align::left, align_v::bottom);
+   // myLabelTrace->caption("PM10");
+    //myLabelTrace->transparent(false);
+    //myLabelTrace->move( 15,chart.parent().height()-20  );
+   // myLabelTrace->fgcolor(colors::green);
+
     chart_trace_25_.reset(&chart.AddRealTimeTrace(100));
     chart_trace_25_->color(colors::blue);
+    chart_trace_25_->setLabel("PM25");
 
     chart_trace_10_.reset(&chart.AddRealTimeTrace(100));
     chart_trace_10_->color(colors::red);
+    chart_trace_10_->setLabel("PM10");
 
-    // create timer to provide new data regularly
-    timer theTimer;
-    theTimer.interval(10);
-    theTimer.elapse([ this ]()
-    {
-      static int p = 0;
-      chart_trace_25_->add(10 * sin(p++ / 10.0));
-      chart_trace_10_->add(5 * sin(p++ / 5));
-    });
-    theTimer.start();
 
     // show and run
     fm.show();
     exec();
   });
 
-  std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-  //viewLoop_.wait();
+  viewLoop_.wait();
 }
 
 ChartsDrawer::ChartsDrawer(IAirQualityMonitor& aqm): MeasurementConsumerBase(aqm) {
