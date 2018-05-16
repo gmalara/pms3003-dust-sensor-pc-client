@@ -24,15 +24,6 @@ void ChartsDrawer::StartViewThread() {
     form fm;
 
     plot::plot chart(fm);
-   // plot::axis ax(&chart);
-   // ax.update();
-    //ax.update()
-   //  static label * myLabelTrace = new label(chart.parent(),  rectangle{ 20, 10, 50, 50 } );
-   // myLabelTrace->text_align(align::left, align_v::bottom);
-   // myLabelTrace->caption("PM10");
-    //myLabelTrace->transparent(false);
-    //myLabelTrace->move( 15,chart.parent().height()-20  );
-   // myLabelTrace->fgcolor(colors::green);
 
     chart_trace_25_.reset(&chart.AddRealTimeTrace(100));
     chart_trace_25_->color(colors::blue);

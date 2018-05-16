@@ -12,6 +12,7 @@ namespace{
 
 int main() {
   AirQualityMonitor aqm;
+  aqm.Start();
 
   ConsolePrinter console_printer(aqm);
   ChartsDrawer charts_drawer(aqm);

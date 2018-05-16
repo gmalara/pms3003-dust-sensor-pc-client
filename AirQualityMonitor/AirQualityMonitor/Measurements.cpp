@@ -10,22 +10,22 @@ const uint16_t kFirstByteOfSequence = 0x42;
 }
 
 
-int Measurements::setPm25TSI(unsigned char* buf) {
+int Measurements::setPm25TSI(const unsigned char* buf) {
   PM25v_ = ((buf[6] << 8) + buf[7]);
   return PM25v_;
 }
 
-int Measurements::setPM10TSI(unsigned char* buf) {
+int Measurements::setPM10TSI(const unsigned char* buf) {
   PM10v_ = ((buf[8] << 8) + buf[9]);
   return PM10v_;
 }
 
-int Measurements::setPM25real(unsigned char* buf) {
+int Measurements::setPM25real(const unsigned char* buf) {
   PM25v_ = ((buf[12] << 8) + buf[13]);
   return PM25v_;
 }
 
-int Measurements::setPM10real(unsigned char* buf) {
+int Measurements::setPM10real(const unsigned char* buf) {
   PM10v_ = ((buf[14] << 8) + buf[15]);
   return PM10v_;
 }
@@ -57,5 +57,4 @@ bool Measurements::HandleIncomingData(unsigned char* buf, int length) {
     setPM25real(rightBuffer);
   }
   return dataok;
-  //std::cout << "PM10 " << setPM10real(rightBuffer) << " \tPM25: " << setPM25real(rightBuffer) << endl; 
 }

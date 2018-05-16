@@ -98,11 +98,15 @@ void AirQualityMonitor::PublishMeasurements(Measurements& m) { onUpdate(m); }
 
 void AirQualityMonitor::SubscribeObserver(IAirQualityMonitor::UpdateHandler::slot_type update) { onUpdate.connect(update); }
 
-AirQualityMonitor::AirQualityMonitor() { RunLoop(); }
+AirQualityMonitor::AirQualityMonitor() { }
 
 AirQualityMonitor::~AirQualityMonitor() {
   onUpdate.disconnect_all_slots();
   shuttingDown_.store(true);
+}
+
+void AirQualityMonitor::Start(){
+  RunLoop();
 }
 
 void AirQualityMonitor::RunLoop() {

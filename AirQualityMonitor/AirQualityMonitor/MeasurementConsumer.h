@@ -39,9 +39,9 @@ public:
   ChartsDrawer(IAirQualityMonitor& aqm);
   ChartsDrawer(const ChartsDrawer&) = delete;
   ~ChartsDrawer();
-  void StartViewThread();
   void Process(const Measurements&) override;
 private:
+  void StartViewThread();
   std::shared_ptr<nana::plot::trace> chart_trace_25_;
   std::shared_ptr<nana::plot::trace> chart_trace_10_;
   std::future<void> viewLoop_;
